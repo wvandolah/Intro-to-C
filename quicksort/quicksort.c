@@ -17,7 +17,7 @@
 */
 void quicksort(int *arr, int low, int high)
 {
-
+    swap(&arr[0], &arr[1]);
 }
 
 #ifndef TESTING

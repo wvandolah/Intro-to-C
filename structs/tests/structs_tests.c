@@ -1,6 +1,6 @@
+#include <structs.h>
 #include "../../utils/minunit.h"
 #include "../../utils/utils.h"
-#include <structs.h>
 
 char *test_person_create()
 {

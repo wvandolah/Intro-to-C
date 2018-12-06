@@ -28,8 +28,14 @@ char *find_char(char *str, int c)
         if(*theString == c){
             return theString;
         }
+        printf("the point %p\n", theString);
+        printf("the point %c\n", *theString);
         theString++;
+        printf("the point %p\n", theString);
+        printf("the point %c\n", *theString);
     }
+ 
+
     return NULL;
 }
 
@@ -64,14 +70,46 @@ void string_copy(char *x, char *y)
     
     Do not just use the `strcmp` function from the standard library.
 */
+// int string_compare(char *m, char *n)
+// {
+//     for (; *m == *n; m++, n++) {
+//         if (*m == '\0') {
+//         return 0;
+//         }
+//     }
+//     return *m - *n;
+// }
+
 int string_compare(char *m, char *n)
 {
-    for (; *m == *n; m++, n++) {
-        if (*m == '\0') {
+  char *alphabet = "abcdefghijklmnopqrstuvwxyz";
+  int alphaCount = 0; 
+  int mCheck = 0; 
+  int nCheck = 0; 
+  char mLower = tolower(m[0]);
+  char nLower = tolower(n[0]);
+
+    if(m[0] == n[0]){
         return 0;
-        }
     }
-    return *m - *n;
+
+    while(*alphabet != '\0') {
+        alphaCount++;
+        
+        if(mLower == *alphabet)  {
+        mCheck = alphaCount;  
+        } else if(nLower == *alphabet) {
+        nCheck = alphaCount;
+        }
+        alphabet++;
+    }
+    
+    if(mCheck > nCheck) {
+        return 1;
+    } else if(mCheck < nCheck){
+        return -1;
+    }
+    return 0;
 }
 
 /*
